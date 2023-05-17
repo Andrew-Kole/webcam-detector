@@ -1,15 +1,15 @@
-import cv2
 import time
+import cv2
 
 video = cv2.VideoCapture(0)
-
-check, frame = video.read()
 time.sleep(1)
 
-check1, frame1 = video.read()
-time.sleep(1)
+while True:
+    time.sleep(1)
+    check, frame = video.read()
+    cv2.imshow("My video", frame)
+    key = cv2.waitKey(1)
+    if key == ord("q"):
+        break
 
-check2, frame2 = video.read()
-time.sleep(1)
-
-print(frame2)
+video.release()
